@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     text-align: center;
-    background-image: url('imagem/background sicoob.jpg');
+    background-image: url('imagem/background-sicoob.png');
     background-size: cover; /* Isso fará com que a imagem cubra todo o elemento */
     background-position: center; /* Isso centralizará a imagem no elemento */
     background-repeat: no-repeat; /* Isso impedirá que a imagem seja repetida */
@@ -15,7 +15,7 @@ body {
 .quiz-container {
     max-width: 400px;
     padding: 0px 20px 20px 20px;
-    background-color: #f3f3f3;
+    background-color: #00313D;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -23,13 +23,15 @@ body {
     align-items: center;
 }
 
+
 .quiz-container #question-container {
-    background-color: #127377; /* Substitua pela cor desejada */
+    /*background-color: #127377; /* Substitua pela cor desejada */
     color: #FFF; /* Cor do texto para garantir a legibilidade */
     padding: 10px; /* Ajuste o padding conforme necessário */
     border-radius: 10px; /* Estilize a borda conforme necessário */
     width: 420px; /* Ajuste a largura conforme necessário */
 }
+
 
 h1 {
     font-size: 24px;
@@ -37,6 +39,11 @@ h1 {
 
 #question-container {
     position: relative;
+}
+
+#quiz-image {
+    width: 200px; /* Largura da imagem */
+    height: auto; /* Altura automática para manter a proporção original */
 }
 
 #timer-container {
@@ -66,6 +73,10 @@ h1 {
 
 #tempo-esgotado.visible {
     transform: scale(1); /* Quando a classe "visible" é adicionada, faz o zoom para 100% */
+}
+
+.invisible {
+    display: none; /* Define a propriedade 'display' como 'none' para tornar o elemento invisível */
 }
 
 .option {

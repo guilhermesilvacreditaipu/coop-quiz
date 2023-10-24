@@ -247,6 +247,7 @@ function timeOut() {
     // Adicione o código para lidar com o tempo esgotado, como mostrar a resposta correta.
     // Você pode usar a função respostaErrada() ou implementar uma função específica para isso.
     disableAnswerButtons(); // Desabilita os botões de resposta
+    tempoEsgotadoElement.classList.remove("invisible");
     tempoEsgotadoElement.classList.add("visible");
 
     nextButton.style.display = "block"; // Exibe o botão "Próxima Pergunta"
@@ -310,15 +311,13 @@ function checkAnswer(selectedOption) {
     setTimeout(() => {
         nextButton.style.display = "block"; // Exiba o botão "Próxima Pergunta"
     }, 2000); // 2 segundos
-    optionsElement.querySelectorAll(".option").forEach(option => {
-        option.disabled = true;
-    });
-
 }
 
 // Ação quando a resposta é correta
 function respostaCorreta() {
     score++; // Incrementa a pontuação
+    audioContagemRegressiva.pause();
+    audioContagemRegressiva.currentTime = 0; // Define o tempo de reprodução para 0 segundos (início)
     audioRespostaCorreta.play();
     //showResultMessage("Resposta correta!", "resposta-correta");
 
@@ -332,6 +331,8 @@ function respostaCorreta() {
 
 // Ação quando a resposta é errada
 function respostaErrada(question, selectedOption) {
+    audioContagemRegressiva.pause();
+    audioContagemRegressiva.currentTime = 0; // Define o tempo de reprodução para 0 segundos (início)
     audioRespostaErrada.play();
     //showResultMessage("Resposta incorreta. A resposta correta é: <br><br>" + question.answer, "resposta-incorreta");
 
@@ -347,10 +348,6 @@ function respostaErrada(question, selectedOption) {
         }
     }
 }
-
-
-
-
 
 // Exibe uma mensagem de resultado
 function showResultMessage(message) {
@@ -376,6 +373,10 @@ function nextQuestion() {
     resultElement.textContent = "";
     nextButton.style.display = "none";
     currentQuestion++; // Incrementa currentQuestion
+    // Para tornar o elemento invisível:
+    tempoEsgotadoElement.classList.add("invisible");
+    // Para tornar o elemento visível novamente (caso necessário):
+    tempoEsgotadoElement.classList.remove("visible");
 
     if (currentQuestion < selectedQuestions.length) {
         showQuestion();
