@@ -6,6 +6,10 @@ body {
     height: 100vh;
     margin: 0;
     text-align: center;
+    background-image: url('imagem/background sicoob.jpg');
+    background-size: cover; /* Isso fará com que a imagem cubra todo o elemento */
+    background-position: center; /* Isso centralizará a imagem no elemento */
+    background-repeat: no-repeat; /* Isso impedirá que a imagem seja repetida */
 }
 
 .quiz-container {
