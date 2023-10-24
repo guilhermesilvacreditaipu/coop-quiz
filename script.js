@@ -203,6 +203,7 @@ let selectedQuestions = questions.slice(0, maxQuestions); // Mude const para let
 let currentQuestion = 0; // Acompanha a pergunta atual
 let score = 0; // Acompanha a pontuação
 let totalRespondido = 0; // Acompanha o total de perguntas respondidas
+let timerInterval; // Variável para armazenar o intervalo do cronômetro
 
 const questionElement = document.getElementById("question"); // Elemento que exibe a pergunta
 const optionsElement = document.getElementById("options"); // Elemento que exibe as opções de resposta
@@ -211,6 +212,52 @@ const nextButton = document.getElementById("next-button"); // Botão "Próxima P
 const audioRespostaCorreta = document.getElementById("audio-resposta-correta"); // Áudio para respostas corretas
 const audioRespostaErrada = document.getElementById("audio-resposta-errada"); // Áudio para respostas erradas
 const restartButton = document.getElementById("restart-button");
+const timerElement = document.getElementById("timer"); // Elemento que exibe o cronômetro
+const audioContagemRegressiva = document.getElementById("audio-contagem-regressiva");
+const tempoEsgotadoElement = document.getElementById("tempo-esgotado");
+
+function startTimer() {
+    let timeLeft = 20; // Tempo inicial em segundos
+
+    timerElement.textContent = `${timeLeft} s`;
+
+    timerInterval = setInterval(() => {
+        timeLeft--;
+
+        if (timeLeft == 10) {
+            audioContagemRegressiva.play(); // Inicie a reprodução do som nos últimos 10 segundos
+        }
+
+        if (timeLeft >= 0) {
+            timerElement.textContent = `${timeLeft} s`;
+        } else {
+            clearInterval(timerInterval);
+            timeOut();
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function timeOut() {
+    stopTimer(); // Para o cronômetro
+
+    // Adicione o código para lidar com o tempo esgotado, como mostrar a resposta correta.
+    // Você pode usar a função respostaErrada() ou implementar uma função específica para isso.
+    disableAnswerButtons(); // Desabilita os botões de resposta
+    tempoEsgotadoElement.classList.add("visible");
+
+    nextButton.style.display = "block"; // Exibe o botão "Próxima Pergunta"
+}
+
+function disableAnswerButtons() {
+    const answerButtons = document.querySelectorAll(".option");
+    answerButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
 
 function restartQuiz() {
     currentQuestion = 0;
@@ -232,6 +279,7 @@ function restartQuiz() {
 
 // Exibe a próxima pergunta
 function showQuestion() {
+    startTimer(); // Inicia o cronômetro
     const question = selectedQuestions[currentQuestion];
     //questionElement.innerHTML = `Pergunta ${totalRespondido} de ${totalQuestions}:<br><br>${question.question}`;
     questionElement.innerHTML = `${question.question}`;
@@ -258,10 +306,14 @@ function checkAnswer(selectedOption) {
         respostaErrada(question, selectedOption);
     }
 
-    nextButton.style.display = "block"; // Exiba o botão "Próxima Pergunta"
+    stopTimer(); // Para o cronômetro
+    setTimeout(() => {
+        nextButton.style.display = "block"; // Exiba o botão "Próxima Pergunta"
+    }, 2000); // 2 segundos
     optionsElement.querySelectorAll(".option").forEach(option => {
         option.disabled = true;
     });
+
 }
 
 // Ação quando a resposta é correta

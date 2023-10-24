@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="quiz-container">
         <div id="question-container">
             <h1>COOP QUIZ</h1>
+            <div id="timer-container">
+                <img id="imagem-relogio" src="imagem/relogio.png" alt="Relógio">
+                <p id="timer">20 s</p>
+            </div>
             <p id="question"></p>
         </div>
         <div id="options">
@@ -15,6 +20,7 @@
             <button class="option" id="option3"></button>
             <button class="option" id="option4"></button>
         </div>
+        <div id="tempo-esgotado" class="hidden">Tempo Esgotado</div>
         <button id="next-button" style="display: none;">Próxima Pergunta</button>
         <button id="restart-button" style="display: none;">Reiniciar Quiz</button>
     </div>
@@ -22,6 +28,7 @@
     
         <audio id="audio-resposta-correta" src="audio/respostaCorreta.mp3"></audio>
         <audio id="audio-resposta-errada" src="audio/respostaErrada.mp3"></audio>
+        <audio id="audio-contagem-regressiva" src="audio/contagem-regressiva.mp3" preload="auto"></audio>
     </div>
 
     <script src="script.js"></script>

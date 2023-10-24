@@ -35,6 +35,39 @@ h1 {
     font-size: 24px;
 }
 
+#question-container {
+    position: relative;
+}
+
+#timer-container {
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    display: flex;
+    align-items: center;
+}
+
+#imagem-relogio {
+    width: 20px; /* Largura desejada para o relógio */
+    height: 20px; /* Altura desejada para o relógio */
+    margin-right: 10px; /* Margem à direita para ajustar a posição do relógio */
+}
+
+#timer {
+    font-size: 18px; /* Tamanho da fonte desejado para o cronômetro */
+}
+
+#tempo-esgotado {
+    font-size: 24px;
+    color: red;
+    transform: scale(0); /* Inicia com escala 0 (invisível) */
+    transition: transform 0.3s; /* Adiciona uma transição suave */
+}
+
+#tempo-esgotado.visible {
+    transform: scale(1); /* Quando a classe "visible" é adicionada, faz o zoom para 100% */
+}
+
 .option {
     display: block;
     width: 400px;
@@ -47,6 +80,12 @@ h1 {
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 } 
+
+.option:disabled {
+    background-color: #ccc; /* Cor de fundo cinza para indicar desativado */
+    opacity: 0.6; /* Diminui a opacidade */
+    cursor: not-allowed; /* Altera o cursor para indicar que não pode ser clicado */
+}
 
 #result {
     font-weight: bold;
