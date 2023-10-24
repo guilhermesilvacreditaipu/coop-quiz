@@ -14,13 +14,21 @@ body {
 
 .quiz-container {
     max-width: 400px;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     background-color: #f3f3f3;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.quiz-container #question-container {
+    background-color: #127377; /* Substitua pela cor desejada */
+    color: #FFF; /* Cor do texto para garantir a legibilidade */
+    padding: 10px; /* Ajuste o padding conforme necessário */
+    border-radius: 10px; /* Estilize a borda conforme necessário */
+    width: 420px; /* Ajuste a largura conforme necessário */
 }
 
 h1 {
@@ -31,14 +39,14 @@ h1 {
     display: block;
     width: 400px;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     background-color: #fff; /* Cor de fundo branca */
     color: black;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
+} 
 
 #result {
     font-weight: bold;

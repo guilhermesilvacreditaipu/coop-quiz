@@ -192,6 +192,10 @@ function shuffleArray(array) {
 // Embaralhar as perguntas
 shuffleArray(questions);
 
+questions.forEach(question => {
+    shuffleArray(question.options);
+});
+
 // Limitar o número de perguntas exibidas no quiz (máximo de 6 perguntas)
 const maxQuestions = 6;
 let selectedQuestions = questions.slice(0, maxQuestions); // Mude const para let
