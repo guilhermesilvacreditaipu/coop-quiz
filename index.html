@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz - Teste seus conhecimentos</h1>
+        <p id="question"></p>
+        <div id="options">
+            <button class="option" id="option1"></button>
+            <button class="option" id="option2"></button>
+            <button class="option" id="option3"></button>
+            <button class="option" id="option4"></button>
+        </div>
+        <button id="next-button" style="display: none;">Próxima Pergunta</button>
+        <button id="restart-button" style="display: none;">Reiniciar Quiz</button>
+    </div>
+        <p id="result"></p>
+    
+        <audio id="audio-resposta-correta" src="audio/respostaCorreta.mp3"></audio>
+        <audio id="audio-resposta-errada" src="audio/respostaErrada.mp3"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
