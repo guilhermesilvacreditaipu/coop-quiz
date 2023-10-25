@@ -12,6 +12,20 @@ body {
     background-repeat: no-repeat; /* Isso impedirá que a imagem seja repetida */
 }
 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    text-align: center;
+    background-image: url('imagem/background-sicoob.png');
+    background-size: 100% 100%; /* A imagem de fundo cobrirá toda a tela */
+    background-position: center; /* Isso centralizará a imagem no elemento */
+    background-repeat: no-repeat; /* Isso impedirá que a imagem seja repetida */
+}
+
+
 /* Estilos para telas maiores, como computadores desktop */
 .quiz-container {
     max-width: 800px;
