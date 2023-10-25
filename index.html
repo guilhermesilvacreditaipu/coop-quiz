@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>     
+<body class="background-start-page">
+    <div id="start-page">
+        <button id="start-quiz-button">Iniciar o Quiz</button>
+    </div>   
+ </body>
+<body class="background-quiz-page">     
     <div class="quiz-container">
         <div id="progress-bar-container"></div> <!-- Barra de progresso -->
         <div id="question-container">
@@ -26,6 +31,8 @@
         <button id="next-button" style="display: none;">Próxima Pergunta</button>
         <button id="restart-button" style="display: none;">Reiniciar Quiz</button>    
     </div>    
+
+    </div>
         <audio id="audio-resposta-correta" src="audio/respostaCorreta.mp3" preload="auto"></audio>
         <audio id="audio-resposta-errada" src="audio/respostaErrada.mp3" preload="auto"></audio>
         <audio id="audio-contagem-regressiva" src="audio/contagem-regressiva.mp3" preload="auto"></audio>

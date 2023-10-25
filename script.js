@@ -217,6 +217,10 @@ const audioContagemRegressiva = document.getElementById("audio-contagem-regressi
 const tempoEsgotadoElement = document.getElementById("tempo-esgotado");
 const audioFimDeJogo = document.getElementById("audio-fim-de-jogo");
 const progressBar = document.getElementById("progress-bar-container");
+const startPage = document.getElementById("start-page");
+const quizContainer = document.querySelector(".quiz-container");
+const startQuizButton = document.getElementById("start-quiz-button");
+const backgroundPage = document.querySelector('.background-quiz-page');
 
 function startTimer() {
     let timeLeft = 30; // Tempo inicial em segundos
@@ -278,8 +282,15 @@ function restartQuiz() {
 
     resultElement.innerHTML = "";
 
-    // Reinicie o quiz exibindo a primeira pergunta
-    showQuestion();
+    // Reinicie o quiz exibindo a pagina inicial
+    showHomePage();
+}
+
+function showHomePage() {
+    document.body.classList.add("background-start-page");
+    document.body.classList.remove("background-quiz-page");
+    startPage.style.display = "block"; // Exibe a página inicial
+    quizContainer.style.display = "none"; // Oculta o contêiner do quiz
 }
 
 // Exibe a próxima pergunta
@@ -353,25 +364,6 @@ function respostaErrada(question, selectedOption) {
     }
 }
 
-// Exibe uma mensagem de resultado
-function showResultMessage(message) {
-    const popup = document.getElementById("popup");
-    const popupMessage = document.getElementById("popup-message");
-    const closePopupButton = document.getElementById("close-popup-button");
-
-    popup.style.display = "block";
-    popupMessage.innerHTML = message + `<br><br><br>Acertou ${score} de ${totalRespondido} respondido.`;
-
-    closePopupButton.addEventListener("click", function closePopup() {
-        console.log("closePopupButton");
-        popup.style.display = "none";
-        nextQuestion();
-    
-        // Remove o ouvinte de eventos após o primeiro clique
-        closePopupButton.removeEventListener("click", closePopup);
-    });
-}
-
 // Exibe a próxima pergunta
 function nextQuestion() {
     resultElement.textContent = "";
@@ -390,6 +382,7 @@ function nextQuestion() {
 }
 
 function quizConcluido() {
+    //backgroundPage.style.backgroundImage = 'url("imagem/background-fim.jpg")';
     audioFimDeJogo.play();
     resultElement.innerHTML = `Quiz concluído!<br><br>` + `Sua pontuação: ` + score + ` de ` + selectedQuestions.length;
     resultElement.classList.add("animate"); // Adicione a classe para animação
@@ -404,7 +397,6 @@ function quizConcluido() {
 
 // Função para atualizar a barra de progresso e a contagem de perguntas
 function updateProgressBar() {
-    let progress = (currentQuestion + 1) / totalQuestions * 100; // Calcula o progresso em porcentagem
     if (progressBar) {
         const totalQuestions = selectedQuestions.length;
         const progress = (currentQuestion + 1) / totalQuestions * 100; // Calcula o progresso em porcentagem
@@ -424,5 +416,14 @@ nextButton.addEventListener("click", () => {
     nextQuestion();
 });
 
+startQuizButton.addEventListener("click", () => {
+    startPage.style.display = "none"; // Oculta a página inicial
+    quizContainer.style.display = "flex"; // Exibe o contêiner do quiz
+    document.body.classList.remove("background-start-page");
+    document.body.classList.add("background-quiz-page");
+    document.getElementById("imagem-relogio").style.display = "block"; // Exibe a imagem do relógio
+    showQuestion(); // Inicia o quiz mostrando a primeira pergunta
+});
+
 // Exibe a primeira pergunta para iniciar o quiz
-showQuestion();
+showHomePage();
