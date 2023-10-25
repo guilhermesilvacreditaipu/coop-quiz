@@ -158,13 +158,34 @@ h1 {
 @media (max-width: 768px) {
     .quiz-container {
         max-width: 90%;
-        padding: 10px;
     }
     h1 {
         font-size: 24px;
     }
     p {
         font-size: 14px;
+    }
+    #quiz-image {
+        width: 150px; /* Reduza o tamanho da imagem para se adequar a telas de tablet */
+    }
+    #question-container {
+        width: 80%; /* Reduza a largura do container da pergunta */
+    }
+    #timer-container {
+        top: 5px; /* Ajuste a distância do topo para economizar espaço */
+        right: 5px; /* Ajuste a distância da direita para economizar espaço */
+    }
+    #timer {
+        font-size: 14px; /* Reduza o tamanho da fonte para economizar espaço */
+    }
+    .option {
+        width: 100%; /* Preencha a largura disponível para opções */
+        padding: 8px 16px; /* Reduza o preenchimento para economizar espaço */
+    }
+    #next-button, #restart-button {
+        width: 100%; /* Preencha a largura disponível para os botões */
+        font-size: 16px; /* Tamanho da fonte ligeiramente maior para facilitar o toque */
+        padding: 10px; /* Aumente o preenchimento para tornar os botões mais acessíveis em tablets */
     }
 }
 
@@ -179,10 +200,26 @@ h1 {
     p {
         font-size: 12px;
     }
-    input[type="radio"] {
-        margin-right: 3px;
+    #quiz-image {
+        width: 150px; /* Reduza o tamanho da imagem para se adequar a telas menores */
     }
-    button {
-        padding: 8px 16px;
+    #question-container {
+        width: 80%; /* Reduza a largura do container da pergunta */
+    }
+    #timer-container {
+        top: 5px; /* Ajuste a distância do topo para economizar espaço */
+        right: 5px; /* Ajuste a distância da direita para economizar espaço */
+    }
+    #timer {
+        font-size: 14px; /* Reduza o tamanho da fonte para economizar espaço */
+    }
+    .option {
+        width: 100%; /* Preencha a largura disponível para opções */
+        padding: 8px 16px; /* Reduza o preenchimento para economizar espaço */
+    }
+    #next-button, #restart-button {
+        width: 100%; /* Preencha a largura disponível para os botões */
+        font-size: 16px; /* Tamanho da fonte ligeiramente maior para facilitar o toque */
+        padding: 10px; /* Aumente o preenchimento para tornar os botões mais acessíveis em dispositivos móveis */
     }
 }
