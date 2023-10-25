@@ -216,6 +216,7 @@ const timerElement = document.getElementById("timer"); // Elemento que exibe o c
 const audioContagemRegressiva = document.getElementById("audio-contagem-regressiva");
 const tempoEsgotadoElement = document.getElementById("tempo-esgotado");
 const audioFimDeJogo = document.getElementById("audio-fim-de-jogo");
+const progressBar = document.getElementById("progress-bar-container");
 
 function startTimer() {
     let timeLeft = 30; // Tempo inicial em segundos
@@ -401,12 +402,27 @@ function quizConcluido() {
     document.getElementById("imagem-relogio").style.display = "none";
 }
 
+// Função para atualizar a barra de progresso e a contagem de perguntas
+function updateProgressBar() {
+    let progress = (currentQuestion + 1) / totalQuestions * 100; // Calcula o progresso em porcentagem
+    if (progressBar) {
+        const totalQuestions = selectedQuestions.length;
+        const progress = (currentQuestion + 1) / totalQuestions * 100; // Calcula o progresso em porcentagem
+        progressBar.style.width = `${progress}%`; // Atualiza a largura da barra de progresso
+    }
+}
+
+// Atualiza a barra de progresso ao reiniciar o quiz
 restartButton.addEventListener("click", () => {
-    // Ação a ser tomada ao clicar no botão de reinício (reiniciar o quiz)
+    progressBar.style.width = "0%"; // Reinicia a barra de progresso
     restartQuiz();
 });
 
-nextButton.addEventListener("click", nextQuestion);
+// Atualiza a barra de progresso ao clicar no botão "Próxima Pergunta"
+nextButton.addEventListener("click", () => {
+    updateProgressBar();
+    nextQuestion();
+});
 
 // Exibe a primeira pergunta para iniciar o quiz
 showQuestion();

@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body>     
     <div class="quiz-container">
+        <div id="progress-bar-container"></div> <!-- Barra de progresso -->
         <div id="question-container">
             <img id="quiz-image" src="imagem/coop-quiz.png" alt="Texto alternativo da imagem">
             <div id="timer-container">
                 <img id="imagem-relogio" src="imagem/relogio.png" alt="Relógio">
                 <p id="timer">20 s</p>
-            </div>
+            </div>             
             <p id="question"></p>
             <p id="result"></p>
         </div>
@@ -23,7 +24,7 @@
         </div>
         <div id="tempo-esgotado" class="hidden">Tempo Esgotado</div>
         <button id="next-button" style="display: none;">Próxima Pergunta</button>
-        <button id="restart-button" style="display: none;">Reiniciar Quiz</button>
+        <button id="restart-button" style="display: none;">Reiniciar Quiz</button>    
     </div>    
         <audio id="audio-resposta-correta" src="audio/respostaCorreta.mp3" preload="auto"></audio>
         <audio id="audio-resposta-errada" src="audio/respostaErrada.mp3" preload="auto"></audio>
