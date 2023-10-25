@@ -12,8 +12,10 @@ body {
     background-repeat: no-repeat; /* Isso impedirá que a imagem seja repetida */
 }
 
+/* Estilos para telas maiores, como computadores desktop */
 .quiz-container {
-    max-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 0px 20px 20px 20px;
     background-color: #00313D;
     border-radius: 10px;
@@ -22,7 +24,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 
 .quiz-container #question-container {
     /*background-color: #127377; /* Substitua pela cor desejada */
@@ -103,6 +104,24 @@ h1 {
     margin: 10px 0;
 }
 
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+  
+#result.animate {
+    animation: fade-in 1s ease forwards;
+    font-size: 30px; /* Tamanho da fonte para a mensagem do quiz finalizado */
+    font-family: "Arial", sans-serif; /* Tipo de letra (fonte) */
+    /* Outros estilos para o elemento de resultado, como cor de fundo, tamanho da fonte, etc. */
+}  
+
 #next-button {
     background-color: black;
     color: #fff;
@@ -133,4 +152,37 @@ h1 {
 /* Estilo para mensagem de resposta incorreta */
 .resposta-incorreta {
     background-color: #d9534f; /* Cor vermelha */
+}
+
+/* Estilos para telas menores, como tablets */
+@media (max-width: 768px) {
+    .quiz-container {
+        max-width: 90%;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+/* Estilos para telas ainda menores, como smartphones */
+@media (max-width: 576px) {
+    .quiz-container {
+        max-width: 100%;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 12px;
+    }
+    input[type="radio"] {
+        margin-right: 3px;
+    }
+    button {
+        padding: 8px 16px;
+    }
 }

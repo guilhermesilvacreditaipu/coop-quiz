@@ -215,9 +215,10 @@ const restartButton = document.getElementById("restart-button");
 const timerElement = document.getElementById("timer"); // Elemento que exibe o cronômetro
 const audioContagemRegressiva = document.getElementById("audio-contagem-regressiva");
 const tempoEsgotadoElement = document.getElementById("tempo-esgotado");
+const audioFimDeJogo = document.getElementById("audio-fim-de-jogo");
 
 function startTimer() {
-    let timeLeft = 20; // Tempo inicial em segundos
+    let timeLeft = 30; // Tempo inicial em segundos
 
     timerElement.textContent = `${timeLeft} s`;
 
@@ -273,6 +274,8 @@ function restartQuiz() {
 
     // Oculte o botão de reinício
     restartButton.style.display = "none";
+
+    resultElement.innerHTML = "";
 
     // Reinicie o quiz exibindo a primeira pergunta
     showQuestion();
@@ -381,10 +384,21 @@ function nextQuestion() {
     if (currentQuestion < selectedQuestions.length) {
         showQuestion();
     } else {
-        questionElement.textContent = "Quiz concluído! Sua pontuação: " + score + " de " + selectedQuestions.length;
-        optionsElement.innerHTML = "";
-        restartButton.style.display = "block"; // Exiba o botão de reinício
+        quizConcluido();
     }
+}
+
+function quizConcluido() {
+    audioFimDeJogo.play();
+    resultElement.innerHTML = `Quiz concluído!<br><br>` + `Sua pontuação: ` + score + ` de ` + selectedQuestions.length;
+    resultElement.classList.add("animate"); // Adicione a classe para animação
+    questionElement.innerHTML = "";
+    optionsElement.innerHTML = "";
+    restartButton.style.display = "block"; // Exiba o botão de reinício
+    // Não exiba o tempo restante
+    timerElement.textContent = "";
+    // Não exiba a imagem do relógio
+    document.getElementById("imagem-relogio").style.display = "none";
 }
 
 restartButton.addEventListener("click", () => {

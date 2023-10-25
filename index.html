@@ -13,6 +13,7 @@
                 <p id="timer">20 s</p>
             </div>
             <p id="question"></p>
+            <p id="result"></p>
         </div>
         <div id="options">
             <button class="option" id="option1"></button>
@@ -23,12 +24,11 @@
         <div id="tempo-esgotado" class="hidden">Tempo Esgotado</div>
         <button id="next-button" style="display: none;">Próxima Pergunta</button>
         <button id="restart-button" style="display: none;">Reiniciar Quiz</button>
-    </div>
-        <p id="result"></p>
-    
-        <audio id="audio-resposta-correta" src="audio/respostaCorreta.mp3"></audio>
-        <audio id="audio-resposta-errada" src="audio/respostaErrada.mp3"></audio>
-        <audio id="audio-contagem-regressiva" src="audio/contagem-regressiva.mp3"></audio>
+    </div>    
+        <audio id="audio-resposta-correta" src="audio/respostaCorreta.mp3" preload="auto"></audio>
+        <audio id="audio-resposta-errada" src="audio/respostaErrada.mp3" preload="auto"></audio>
+        <audio id="audio-contagem-regressiva" src="audio/contagem-regressiva.mp3" preload="auto"></audio>
+        <audio id="audio-fim-de-jogo" src="audio/audio-fim-de-jogo.mp3" preload="auto"></audio>
     </div>
 
     <script src="script.js"></script>
