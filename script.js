@@ -220,7 +220,6 @@ const progressBar = document.getElementById("progress-bar-container");
 const startPage = document.getElementById("start-page");
 const quizContainer = document.querySelector(".quiz-container");
 const startQuizButton = document.getElementById("start-quiz-button");
-const backgroundPage = document.querySelector('.background-quiz-page');
 
 function startTimer() {
     let timeLeft = 30; // Tempo inicial em segundos
@@ -287,8 +286,10 @@ function restartQuiz() {
 }
 
 function showHomePage() {
-    document.body.classList.add("background-start-page");
     document.body.classList.remove("background-quiz-page");
+    document.body.classList.add("background-start-page");
+    let homePage = document.querySelector('.background-start-page'); // Obtém o elemento com a classe 'background-start-page'
+    homePage.style.backgroundImage = "url('imagem/background-inicio.png')"; // Define a nova imagem de fundo
     startPage.style.display = "block"; // Exibe a página inicial
     quizContainer.style.display = "none"; // Oculta o contêiner do quiz
 }
@@ -382,7 +383,8 @@ function nextQuestion() {
 }
 
 function quizConcluido() {
-    //backgroundPage.style.backgroundImage = 'url("imagem/background-fim.jpg")';
+    let quizPage = document.querySelector('.background-quiz-page'); // Obtém o elemento com a classe 'background-quiz-page'
+    quizPage.style.backgroundImage = "url('imagem/background-fim.png')"; // Define a nova imagem de fundo
     audioFimDeJogo.play();
     resultElement.innerHTML = `Quiz concluído!<br><br>` + `Sua pontuação: ` + score + ` de ` + selectedQuestions.length;
     resultElement.classList.add("animate"); // Adicione a classe para animação
@@ -421,6 +423,9 @@ startQuizButton.addEventListener("click", () => {
     quizContainer.style.display = "flex"; // Exibe o contêiner do quiz
     document.body.classList.remove("background-start-page");
     document.body.classList.add("background-quiz-page");
+
+    let quizPage = document.querySelector('.background-quiz-page'); // Obtém o elemento com a classe 'background-quiz-page'
+    quizPage.style.backgroundImage = "url('imagem/background-sicoob.png')"; // Define a nova imagem de fundo
     document.getElementById("imagem-relogio").style.display = "block"; // Exibe a imagem do relógio
     showQuestion(); // Inicia o quiz mostrando a primeira pergunta
 });
