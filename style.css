@@ -170,7 +170,9 @@ h1 {
     border-radius: 30px;
     cursor: pointer;
     margin: 10px 0; /* Adicionando margem superior e inferior para centralizar o botão verticalmente */
-    width: 300px;
+    width: 400px;
+    font-size: 30px;
+    margin-top: 200px; /* margem de cima */
 }
 
 #restart-button {
