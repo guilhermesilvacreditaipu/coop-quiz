@@ -26,13 +26,13 @@ const questions = [
     },
     {
         question: "O que é uma cooperativa de crédito?",
-        options: ["Uma organização que concede empréstimos a juros altos", "Uma instituição financeira que visa lucro", "Uma associação de pessoas que se unem para atender às necessidades financeiras dos membros", "Um banco comum"],
-        answer: "Uma associação de pessoas que se unem para atender às necessidades financeiras dos membros"
+        options: ["Uma organização que concede empréstimos a juros altos", "Uma instituição financeira que visa lucro", "Uma associação de pessoas que se unem para atender às necessidades financeiras dos associados", "Um banco comum"],
+        answer: "Uma associação de pessoas que se unem para atender às necessidades financeiras dos associados"
     },
     {
         question: "Qual é o principal objetivo de uma cooperativa de crédito?",
-        options: ["Maximizar os lucros dos acionistas", "Oferecer serviços financeiros de alta complexidade", "Atender às necessidades financeiras dos membros", "Competir com outras instituições financeiras"],
-        answer: "Atender às necessidades financeiras dos membros"
+        options: ["Maximizar os lucros dos acionistas", "Oferecer serviços financeiros de alta complexidade", "Atender às necessidades financeiras dos associados", "Competir com outras instituições financeiras"],
+        answer: "Atender às necessidades financeiras dos associados"
     },
     {
         question: "Qual é a principal diferença entre um cartão de crédito e um cartão de débito?",
@@ -66,18 +66,18 @@ const questions = [
     },
     {
         question: "O que torna uma cooperativa diferente de um banco tradicional?",
-        options: ["As cooperativas são organizações sem fins lucrativos", "As cooperativas são de propriedade e operadas pelos próprios membros", "As cooperativas oferecem apenas empréstimos a longo prazo", "As cooperativas não oferecem serviços de poupança"],
-        answer: "As cooperativas são de propriedade e operadas pelos próprios membros"
+        options: ["As cooperativas são organizações sem fins lucrativos", "As cooperativas são de propriedade e operadas pelos próprios associados", "As cooperativas oferecem apenas empréstimos a longo prazo", "As cooperativas não oferecem serviços de poupança"],
+        answer: "As cooperativas são de propriedade e operadas pelos próprios associados"
     },
     {
         question: "Quais são os principais objetivos das cooperativas?",
-        options: ["Maximizar os lucros dos investidores", "Oferecer empréstimos a juros altos", "Atender às necessidades financeiras e sociais dos membros", "Competir com outras instituições financeiras"],
-        answer: "Atender às necessidades financeiras e sociais dos membros"
+        options: ["Maximizar os lucros dos investidores", "Oferecer empréstimos a juros altos", "Atender às necessidades financeiras e sociais dos associados", "Competir com outras instituições financeiras"],
+        answer: "Atender às necessidades financeiras e sociais dos associados"
     },
     {
         question: "Por que as cooperativas são consideradas organizações democráticas?",
-        options: ["Porque são administradas por um único líder eleito", "Porque todos os membros têm voz e voto nas decisões da cooperativa", "Porque seguem uma estrutura hierárquica rígida", "Porque são controladas por acionistas externos"],
-        answer: "Porque todos os membros têm voz e voto nas decisões da cooperativa"
+        options: ["Porque são administradas por um único líder eleito", "Porque todos os associados têm voz e voto nas decisões da cooperativa", "Porque seguem uma estrutura hierárquica rígida", "Porque são controladas por acionistas externos"],
+        answer: "Porque todos os associados têm voz e voto nas decisões da cooperativa"
     },
     {
         question: "Quais são os benefícios de ser membro de uma cooperativa?",
@@ -86,23 +86,23 @@ const questions = [
     },
     {
         question: "Qual é um dos principais princípios do cooperativismo?",
-        options: ["Maximizar os lucros dos acionistas", "Coletar taxas de adesão elevadas dos membros", "Democracia e participação dos membros na tomada de decisões", "Restringir o acesso a serviços financeiros"],
-        answer: "Democracia e participação dos membros na tomada de decisões"
+        options: ["Maximizar os lucros dos acionistas", "Coletar taxas de adesão elevadas dos associados", "Democracia e participação dos associados na tomada de decisões", "Restringir o acesso a serviços financeiros"],
+        answer: "Democracia e participação dos associados na tomada de decisões"
     },
     {
-        question: "Por que as cooperativas são frequentemente consideradas mais focadas nas necessidades dos membros?",
-        options: ["Porque elas são subsidiadas pelo governo", "Porque não têm fins lucrativos e são de propriedade dos membros, que também são clientes", "Porque oferecem empréstimos com taxas de juros mais altas", "Porque não oferecem serviços de seguro"],
-        answer: "Porque não têm fins lucrativos e são de propriedade dos membros, que também são clientes"
+        question: "Por que as cooperativas são frequentemente consideradas mais focadas nas necessidades dos associados?",
+        options: ["Porque elas são subsidiadas pelo governo", "Porque não têm fins lucrativos e são de propriedade dos associados, que também são clientes", "Porque oferecem empréstimos com taxas de juros mais altas", "Porque não oferecem serviços de seguro"],
+        answer: "Porque não têm fins lucrativos e são de propriedade dos associados, que também são clientes"
     },
     {
         question: "O que é a assembleia geral de uma cooperativa?",
-        options: ["Um evento social anual para membros da cooperativa", "Um grupo de diretores da cooperativa", "Uma reunião onde os membros têm voz e voto nas decisões importantes da cooperativa", "Uma organização que supervisiona o governo da cooperativa"],
-        answer: "Uma reunião onde os membros têm voz e voto nas decisões importantes da cooperativa"
+        options: ["Um evento social anual para associados da cooperativa", "Um grupo de diretores da cooperativa", "Uma reunião onde os associados têm voz e voto nas decisões importantes da cooperativa", "Uma organização que supervisiona o governo da cooperativa"],
+        answer: "Uma reunião onde os associados têm voz e voto nas decisões importantes da cooperativa"
     },
     {
         question: "Quem é o proprietário de uma cooperativa?",
-        options: ["O governo federal", "Os acionistas da cooperativa", "Os diretores da cooperativa", "Os próprios membros da cooperativa"],
-        answer: "Os próprios membros da cooperativa"
+        options: ["O governo federal", "Os acionistas da cooperativa", "Os diretores da cooperativa", "Os próprios associados da cooperativa"],
+        answer: "Os próprios associados da cooperativa"
     },
     {
         question: "Como as cooperativas contribuem para o fortalecimento das comunidades locais?",
