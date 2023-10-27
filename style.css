@@ -234,11 +234,6 @@ h1 {
         font-size: 16px; /* Tamanho da fonte ligeiramente maior para facilitar o toque */
         padding: 10px; /* Aumente o preenchimento para tornar os botões mais acessíveis em tablets */
     }
-    #start-page {
-        text-align: center;
-        padding: 20px;
-        margin-top: 1000px;
-    }
 }
 
 /* Estilos para telas ainda menores, como smartphones */
