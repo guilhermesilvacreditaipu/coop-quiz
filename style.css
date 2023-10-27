@@ -1,3 +1,13 @@
+:root {
+    --main-bg-color: #00313D;
+    --accent-color: #00A396;
+    --text-color: #FFF;
+    --button-bg-color: #00A396;
+    --button-text-color: #fff;
+    --button-border-radius: 30px;
+    --button-padding: 10px 20px;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -7,9 +17,10 @@ body {
     margin: 0;
     text-align: center;
     background-image: url('imagem/background-sicoob.png');
-    background-size: cover; /* Isso fará com que a imagem cubra todo o elemento */
-    background-position: center; /* Isso centralizará a imagem no elemento */
-    background-repeat: no-repeat; /* Isso impedirá que a imagem seja repetida */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--main-bg-color);
 }
 
 .background-start-page {
@@ -22,46 +33,57 @@ body {
     /* Outros estilos para a página do quiz */
 }
 
-  
 #start-page {
+    max-width: 800px;
     text-align: center;
     padding: 20px;
-    margin-top: 500px;
+    margin-top: 200px;
+}
+
+/* Estilos para o texto específico */
+#start-page h1 {
+    font-size: 40px; /* Tamanho da fonte desejado */
+    color: #ffffff; /* Cor branca */
+}
+
+/* Estilos para o texto específico */
+#start-page p {
+    font-size: 30px; /* Tamanho da fonte desejado */
+    color: #ffffff; /* Cor branca */
 }
 
 #progress-bar-container {
-    width: 0%; /* Largura total */
-    height: 6px; /* Altura da barra de progresso */
-    position: absolute; /* Posição absoluta em relação ao quiz-container */
-    top: 0; /* Alinhado ao topo do quiz-container */
-    left: 0; /* Alinhado à esquerda do quiz-container */
-    background-color: #00A396; /* Cor de preenchimento da barra de progresso */
-    transition: width 0.5s ease; /* Adiciona uma transição suave de 0.5 segundos na largura */
+    width: 0%;
+    height: 6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.5s ease;
 }
-  
-/* Estilos para telas maiores, como computadores desktop */
+
 .quiz-container {
-    max-width: 800px;
+    /*max-width: 800px;*/
+    /*width: 40%;*/
     margin: 0 auto;
     padding: 0px 20px 20px 20px;
-    background-color: #00313D;
+    background-color: var(--main-bg-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: none;
     flex-direction: column;
     align-items: center;
-    border: 2px solid #00A396; /* Cor da borda da barra de progresso */
-    border-radius: 8px; /* Borda arredondada */
-    position: relative; /* Para posicionar o conteúdo corretamente */
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;;
+    position: relative;
 }
 
 .quiz-container #question-container {
     /*background-color: #127377; /* Substitua pela cor desejada */
-    color: #FFF; /* Cor do texto para garantir a legibilidade */
-    padding: 10px; /* Ajuste o padding conforme necessário */
-    border-radius: 10px; /* Estilize a borda conforme necessário */
-    width: 420px; /* Ajuste a largura conforme necessário */
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 10px;
+    width: 420px;
 }
-
 
 h1 {
     font-size: 24px;
@@ -77,41 +99,41 @@ h1 {
 }
 
 #quiz-image {
-    width: 200px; /* Largura da imagem */
-    height: auto; /* Altura automática para manter a proporção original */
+    width: 200px;
+    height: auto;
 }
 
 #timer-container {
     position: absolute;
-    top: 10px; /* Distância do topo */
-    right: 10px; /* Distância da direita */
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
 }
 
 #imagem-relogio {
-    width: 20px; /* Largura desejada para o relógio */
-    height: 20px; /* Altura desejada para o relógio */
-    margin-right: 10px; /* Margem à direita para ajustar a posição do relógio */
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 
 #timer {
-    font-size: 18px; /* Tamanho da fonte desejado para o cronômetro */
+    font-size: 18px;
 }
 
 #tempo-esgotado {
     font-size: 24px;
     color: red;
-    transform: scale(0); /* Inicia com escala 0 (invisível) */
-    transition: transform 0.3s; /* Adiciona uma transição suave */
+    transform: scale(0);
+    transition: transform 0.3s;
 }
 
 #tempo-esgotado.visible {
-    transform: scale(1); /* Quando a classe "visible" é adicionada, faz o zoom para 100% */
+    transform: scale(1);
 }
 
 .invisible {
-    display: none; /* Define a propriedade 'display' como 'none' para tornar o elemento invisível */
+    display: none;
 }
 
 .option {
@@ -119,19 +141,19 @@ h1 {
     width: 400px;
     padding: 10px;
     margin: 10px;
-    background-color: #fff; /* Cor de fundo branca */
+    background-color: #fff;
     color: black;
     border: none;
-    border-radius: 30px;
+    border-radius: var(--button-border-radius);
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     font-size: 16px;
-} 
+}
 
 .option:disabled {
-    background-color: #ccc; /* Cor de fundo cinza para indicar desativado */
-    opacity: 0.6; /* Diminui a opacidade */
-    cursor: not-allowed; /* Altera o cursor para indicar que não pode ser clicado */
+    background-color: #ccc;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 #result {
@@ -141,136 +163,168 @@ h1 {
 
 @keyframes fade-in {
     0% {
-      opacity: 0;
-      transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(20px);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
-  
+
 #result.animate {
     animation: fade-in 1s ease forwards;
-    font-size: 30px; /* Tamanho da fonte para a mensagem do quiz finalizado */
-    font-family: "Arial", sans-serif; /* Tipo de letra (fonte) */
-    /* Outros estilos para o elemento de resultado, como cor de fundo, tamanho da fonte, etc. */
-}  
+    font-size: 30px;
+    font-family: "Arial", sans-serif;
+}
 
 #next-button {
-    background-color: #00A396;
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
     cursor: pointer;
-    margin: 10px 0; /* Adicionando margem superior e inferior para centralizar o botão verticalmente */
+    margin: 10px 0;
     width: 300px;
 }
 
 #start-quiz-button {
-    background-color: #00A396;
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
     cursor: pointer;
-    margin: 10px 0; /* Adicionando margem superior e inferior para centralizar o botão verticalmente */
-    width: 300px;
-    font-size: 20px;
+    margin: 10px 0;
+    width: 20rem;
+    font-size: 2rem;
 }
 
 #restart-button {
     background-color: black;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
     cursor: pointer;
-    margin: 10px 0; /* Adicionando margem superior e inferior para centralizar o botão verticalmente */
+    margin: 10px 0;
     width: 300px;
 }
 
 /* Estilo para mensagem de resposta correta */
 .resposta-correta {
-    background-color: #5cb85c; /* Cor verde */
+    background-color: #5cb85c;
 }
 
 /* Estilo para mensagem de resposta incorreta */
 .resposta-incorreta {
-    background-color: #d9534f; /* Cor vermelha */
+    background-color: #d9534f;
 }
 
-/* Estilos para telas menores, como tablets */
-@media (max-width: 768px) {
-    .quiz-container {
-        max-width: 90%;
-    }
-    h1 {
-        font-size: 24px;
-    }
-    p {
-        font-size: 14px;
-    }
-    #quiz-image {
-        width: 150px; /* Reduza o tamanho da imagem para se adequar a telas de tablet */
-    }
-    #question-container {
-        width: 80%; /* Reduza a largura do container da pergunta */
-    }
-    #timer-container {
-        top: 5px; /* Ajuste a distância do topo para economizar espaço */
-        right: 5px; /* Ajuste a distância da direita para economizar espaço */
-    }
-    #timer {
-        font-size: 14px; /* Reduza o tamanho da fonte para economizar espaço */
-    }
-    .option {
-        width: 100%; /* Preencha a largura disponível para opções */
-        padding: 8px 16px; /* Reduza o preenchimento para economizar espaço */
-    }
-    #next-button, #restart-button {
-        width: 100%; /* Preencha a largura disponível para os botões */
-        font-size: 16px; /* Tamanho da fonte ligeiramente maior para facilitar o toque */
-        padding: 10px; /* Aumente o preenchimento para tornar os botões mais acessíveis em tablets */
-    }
-}
-
-/* Estilos para telas ainda menores, como smartphones */
-@media (max-width: 576px) {
+/* Extra Large Devices: Screen width > 1200px */
+@media (min-width: 1080px) {
     body {
-        background-image: url('imagem/background-sicoob-smarthphone.png');
+        background-size: cover; /* Adjust background size */
     }
 
     .quiz-container {
-        max-width: 100%;
+        width: 40%; /* Adjust quiz container width */
     }
-    h1 {
-        font-size: 20px;
+
+    #start-page {
+        margin-top: 100px; /* Adjust margin-top for start page */
     }
-    p {
-        font-size: 12px;
+
+    #start-page h1 {
+        font-size: 48px; /* Increase font size for h1 */
     }
+
+    #start-page p {
+        font-size: 36px; /* Increase font size for p */
+    }
+
+    /* Add other styles for extra-large devices as needed */
+}
+
+
+/* Medium Devices: Screen width > 768px */
+@media (max-width: 980px) {
+    body {
+        background-size: cover; /* Adjust background size */
+    }
+
+    .quiz-container {
+        width: 80%; /* Adjust quiz container width */
+        height: auto;
+    }
+
     #quiz-image {
-        width: 150px; /* Reduza o tamanho da imagem para se adequar a telas menores */
+        margin-top: 100px;
+        width: 400px;
+        height: auto;
     }
-    #question-container {
-        width: 80%; /* Reduza a largura do container da pergunta */
+
+    #question {
+        font-size: 40px;
+        margin: 10px 0;
     }
-    #timer-container {
-        top: 5px; /* Ajuste a distância do topo para economizar espaço */
-        right: 5px; /* Ajuste a distância da direita para economizar espaço */
+
+    .quiz-container #question-container {
+        /*background-color: #127377; /* Substitua pela cor desejada */
+        color: var(--text-color);
+        padding: 10px;
+        border-radius: 10px;
+        width: 80%;
     }
-    #timer {
-        font-size: 14px; /* Reduza o tamanho da fonte para economizar espaço */
-    }
+
     .option {
-        width: 100%; /* Preencha a largura disponível para opções */
-        padding: 8px 16px; /* Reduza o preenchimento para economizar espaço */
+        width: 700px;
+        margin: 30px;
+        font-size: 30px;
     }
-    #next-button, #restart-button {
-        width: 100%; /* Preencha a largura disponível para os botões */
-        font-size: 16px; /* Tamanho da fonte ligeiramente maior para facilitar o toque */
-        padding: 10px; /* Aumente o preenchimento para tornar os botões mais acessíveis em dispositivos móveis */
+
+    #next-button {
+        margin: 10px 0;
+        width: 600px;
+        font-size: 30px;
     }
+
+    #restart-button {
+        margin: 10px 0;
+        width: 600px;
+        font-size: 30px;
+    }
+
+    #timer-container {
+        position: absolute;
+        top: 110px;
+        right: -30px;
+        display: flex;
+        align-items: center;
+    }
+
+    #imagem-relogio {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+    }
+
+    #timer {
+        font-size: 30px;
+    }
+
+    #start-page {
+        margin-top: 150px; /* Adjust margin-top for start page */
+    }
+
+    #start-page h1 {
+        font-size: 36px; /* Increase font size for h1 */
+    }
+
+    #start-page p {
+        font-size: 32px; /* Increase font size for p */
+    }
+
+    /* Add other styles for medium devices as needed */
 }
