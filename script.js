@@ -289,7 +289,15 @@ function showHomePage() {
     document.body.classList.remove("background-quiz-page");
     document.body.classList.add("background-start-page");
     let homePage = document.querySelector('.background-start-page'); // Obtém o elemento com a classe 'background-start-page'
-    homePage.style.backgroundImage = "url('imagem/background-inicio.png')"; // Define a nova imagem de fundo
+
+    // Verificar a largura da tela
+    if (window.innerWidth < 768) {
+        homePage.style.backgroundImage = "url('imagem/background-inicio-smartphone.png')";
+    } else {
+        console.log(window.innerWidth);
+        homePage.style.backgroundImage = "url('imagem/background-inicio.png')";
+    }
+    
     startPage.style.display = "block"; // Exibe a página inicial
     quizContainer.style.display = "none"; // Oculta o contêiner do quiz
 }
