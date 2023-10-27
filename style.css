@@ -249,7 +249,7 @@ h1 {
 
 
 /* Medium Devices: Screen width > 768px */
-@media (max-width: 980px) {
+@media (max-width: 576px) {
     body {
         background-size: cover; /* Adjust background size */
     }
