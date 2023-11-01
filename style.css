@@ -103,7 +103,7 @@ h1 {
 #timer-container {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 60px;
     display: flex;
     align-items: center;
 }
@@ -184,6 +184,7 @@ h1 {
     cursor: pointer;
     margin: 10px 0;
     width: 300px;
+    font-size: 26px;
 }
 
 #start-quiz-button {
@@ -226,7 +227,7 @@ h1 {
     }
 
     .quiz-container {
-        width: 60%; /* Adjust quiz container width */
+        width: 50%; /* Adjust quiz container width */
     }
 
     #start-page {
@@ -252,7 +253,7 @@ h1 {
     }
 
     .quiz-container {
-        width: 60%; /* Adjust quiz container width */
+        width: 80%; /* Adjust quiz container width */
         height: auto;
     }
 
