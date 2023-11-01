@@ -196,7 +196,7 @@ h1 {
     cursor: pointer;
     margin: 10px 0;
     width: 20rem;
-    font-size: 2rem;
+    font-size: 26px;
 }
 
 #restart-button {
@@ -227,7 +227,7 @@ h1 {
     }
 
     .quiz-container {
-        width: 50%; /* Adjust quiz container width */
+        width: 46%; /* Adjust quiz container width */
     }
 
     #start-page {
