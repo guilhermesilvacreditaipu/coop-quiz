@@ -79,7 +79,7 @@ body {
     color: var(--text-color);
     padding: 10px;
     border-radius: 10px;
-    width: 680px;
+    width: 550px;
 }
 
 h1 {
@@ -103,7 +103,7 @@ h1 {
 #timer-container {
     position: absolute;
     top: 10px;
-    right: 60px;
+    right: 16px;
     display: flex;
     align-items: center;
 }
@@ -135,7 +135,7 @@ h1 {
 
 .option {
     display: block;
-    width: 600px;
+    width: 550px;
     padding: 10px;
     margin: 10px;
     background-color: #fff;
