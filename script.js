@@ -220,6 +220,70 @@ const progressBar = document.getElementById("progress-bar-container");
 const startPage = document.getElementById("start-page");
 const quizContainer = document.querySelector(".quiz-container");
 const startQuizButton = document.getElementById("start-quiz-button");
+// Substitua 'YOUR_GOOGLE_SHEETS_API_KEY' e 'YOUR_SHEETS_LINK' pelas informações apropriadas
+const sheetsApiKey = 'AIzaSyA4vZVj5N1WPIesWy3c-m4lOZtTGBGjHsg';
+const sheetsLink = '1-3VPBt84Ii0DahIvuJvHQaTv_AuvM8EistDX-M6yzKQ';
+
+function incluirCpfNaPlanilha(cpf) {
+    
+    // Verifica se o CPF é válido antes de prosseguir (adicione a lógica necessária aqui)
+
+    // Configuração da URL da API
+    const sheetsApiUrl1 = `https://sheets.googleapis.com/v4/spreadsheets/${sheetsLink}/values/A1:A100?key=${sheetsApiKey}`;
+
+    // Dados a serem enviados para a planilha (no formato de matriz bidimensional)
+    const values = [[cpf]];
+
+    // Configuração da solicitação
+    fetch(sheetsApiUrl1, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            values,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('CPF incluído com sucesso na planilha!');
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Erro ao incluir CPF na planilha. Verifique o console para mais detalhes.');
+    });
+}
+
+function checkIfUserParticipated(cpf) {
+    const sheetsApiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetsLink}/values/A1:A100?key=${sheetsApiKey}`;
+
+    // Faça uma requisição para verificar se o CPF está na planilha
+    fetch(sheetsApiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const cpfList = data.values.flat(); // Achatando a lista de valores
+            const isDuplicated = cpfList.filter(item => item === cpf).length > 1;
+
+            if (isDuplicated) {
+                // CPF duplicado, não permita participar do quiz
+                console.log('CPF duplicado. Não é permitido participar do quiz.');
+                alert('Verificamos que você já participou do quiz. Não é permitido participar mais de uma vez.');
+            } else {
+                console.log('Primeira participação do usuário.');    
+                startPage.style.display = "none"; // Oculta a página inicial
+                quizContainer.style.display = "flex"; // Exibe o contêiner do quiz
+                document.body.classList.remove("background-start-page");
+                document.body.classList.add("background-quiz-page");
+                let quizPage = document.querySelector('.background-quiz-page'); // Obtém o elemento com a classe 'background-quiz-page'
+                quizPage.style.backgroundImage = "url('imagem/background-sicoob.png')"; // Define a nova imagem de fundo
+                document.getElementById("imagem-relogio").style.display = "block"; // Exibe a imagem do relógio
+                showQuestion(); // Inicia o quiz mostrando a primeira pergunta
+            }
+        })
+        .catch(error => console.error('Erro ao verificar participação:', error));
+}
+
 
 function startTimer() {
     let timeLeft = 30; // Tempo inicial em segundos
@@ -419,15 +483,9 @@ nextButton.addEventListener("click", () => {
 });
 
 startQuizButton.addEventListener("click", () => {
-    startPage.style.display = "none"; // Oculta a página inicial
-    quizContainer.style.display = "flex"; // Exibe o contêiner do quiz
-    document.body.classList.remove("background-start-page");
-    document.body.classList.add("background-quiz-page");
-
-    let quizPage = document.querySelector('.background-quiz-page'); // Obtém o elemento com a classe 'background-quiz-page'
-    quizPage.style.backgroundImage = "url('imagem/background-sicoob.png')"; // Define a nova imagem de fundo
-    document.getElementById("imagem-relogio").style.display = "block"; // Exibe a imagem do relógio
-    showQuestion(); // Inicia o quiz mostrando a primeira pergunta
+    const cpfDoUsuario = prompt("Digite seu CPF:"); 
+    checkIfUserParticipated(cpfDoUsuario);
+    //incluirCpfNaPlanilha(cpfDoUsuario);
 });
 
 // Exibe a primeira pergunta para iniciar o quiz
