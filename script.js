@@ -448,7 +448,8 @@ function nextQuestion() {
 
 function quizConcluido() {
     let quizPage = document.querySelector('.background-quiz-page'); // Obtém o elemento com a classe 'background-quiz-page'
-    quizPage.style.backgroundImage = "url('imagem/background-fim.png')"; // Define a nova imagem de fundo
+    //quizPage.style.backgroundImage = "url('imagem/background-fim.png')"; // Define a nova imagem de fundo
+    quizPage.style.backgroundImage = "url('imagem/background-sicoob.png')"; // Define a nova imagem de fundo
     audioFimDeJogo.play();
     resultElement.innerHTML = `Quiz concluído!<br><br>` + `Sua pontuação: ` + score + ` de ` + selectedQuestions.length;
     resultElement.classList.add("animate"); // Adicione a classe para animação
